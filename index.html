@@ -13,20 +13,33 @@
   </head>
   <body>
     <div class="container">
-      <div class="weather-app">
-        <h1>Fremont,USA</h1>
-        <ul>
-          <li>Wednesday,12:01pm</li>
-          <li>clear Sky</li>
-        </ul>
-        <div class="row">
-          <div class="col-6">12° C | °F</div>
-          <div class="col-6">
+      <div class="weather-app-wrapper">
+        <div class="weather-app">
+          <div class="overview">
+            <h1>Fremont,USA</h1>
             <ul>
-              <li>Percipitation: 0%</li>
-              <li>Humidity: 40%</li>
-              <li>Wind: 2km/hr</li>
+              <li>Wednesday,12:01pm</li>
+              <li>clear Sky</li>
+              </div>
             </ul>
+            <div class="row">
+              <div class="col-6">
+                <div class="d-flex weather-temperature">
+                  <img
+                    src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+                    alt="clear"
+                  />
+                  <strong>12</strong>
+                  <span class="units">° C | <a href="#">°F</a></span>
+              </div>
+            </div>
+            <div class="col-6">
+              <ul>
+                <li>Percipitation: 0%</li>
+                <li>Humidity: 40%</li>
+                <li>Wind: 2km/hr</li>
+              </ul>
+            </div>
           </div>
         </div>
         <small>
