@@ -70,7 +70,7 @@ function displayCelsiusTemperature(event) {
 }
 
 let celsiusTemperature = null;
-search("New York");
+search("Fremont");
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
