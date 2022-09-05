@@ -21,6 +21,52 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Tue", "Wed", "Thu", "Fri"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      ` 
+      <div class="col-2">
+        <div class="weather-forecast-date">${day}</div>
+        <img
+          src="http://openweathermap.org/img/wn/01d@2x.png"
+          alt=""
+          width="40"
+        />
+        <div class="weather-forecast-temperature">
+          <span class="weather-forecast-temperature-max">18°</span>
+          <span class="weather-forecast-temperature-min">12°</span>
+        </div>
+      </div>
+    `;
+  });
+
+  //   forecastHTML =
+  //     forecastHTML +
+  //     `
+  //       <div class="col-2">
+  //         <div class="weather-forecast-date">Fri</div>
+  //         <img
+  //           src="http://openweathermap.org/img/wn/01d@2x.png"
+  //           alt=""
+  //           width="40"
+  //         />
+  //         <div class="weather-forecast-temperature">
+  //           <span class="weather-forecast-temperature-max">18°</span>
+  //           <span class="weather-forecast-temperature-min">12°</span>
+  //         </div>
+  //       </div>
+
+  //   `;
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function displayTemperature(response) {
   console.log(response.data);
   let temperatureElement = document.querySelector("#temperature");
@@ -45,7 +91,7 @@ function displayTemperature(response) {
 }
 
 function search(city) {
-  let apiKey = "931dc49fba96c8c62bbb87a9dc503a65";
+  let apiKey = "c95d60a1e3adbeb286133f1ebebc2579";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayTemperature);
 }
@@ -70,7 +116,9 @@ function displayCelsiusTemperature(event) {
 }
 
 let celsiusTemperature = null;
+
 search("Fremont");
+displayForecast();
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
